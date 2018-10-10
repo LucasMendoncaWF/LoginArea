@@ -50,19 +50,32 @@ $('#botao-cadastrar').click(function (e) {
     if ($('#nome-cadastro').val() && $('#email-cadastro').val() && $('#senha-cadastro').val() && $('#senha-cadastro-confirm').val()) {
         //Verifica se as duas senhas estão iguais
         if ($('#senha-cadastro').val() == $('#senha-cadastro-confirm').val()) {
-            $('.error-text').hide();
-            //cadastra os dados
-            Cadastros.push({
-                Login: $('#email-cadastro').val(),
-                Password: $('#senha-cadastro').val(),
-                Name: $('#nome-cadastro').val()
-            });
-            //volta para a tela de login
-            $('.login-entrar').slideToggle(400);
-            $('.cadastrar').slideToggle(400);
-            $('.cadastro-sucesso').show();
-            //apaga o conteudo dos campos
-            $('#nome-cadastro, #email-cadastro, #senha-cadastro, #senha-cadastro-confirm').val('');
+            //Verifica se nao possui nenhum e-mail igual cadastrado
+            var emailJaCadastrado = false;
+            for (var _i = 0, Cadastros_2 = Cadastros; _i < Cadastros_2.length; _i++) {
+                var cadastro = Cadastros_2[_i];
+                if (cadastro.Login == $('#email-cadastro').val()) {
+                    emailJaCadastrado = true;
+                }
+            }
+            if (!emailJaCadastrado) {
+                $('.error-text').hide();
+                //cadastra os dados
+                Cadastros.push({
+                    Login: $('#email-cadastro').val(),
+                    Password: $('#senha-cadastro').val(),
+                    Name: $('#nome-cadastro').val()
+                });
+                //volta para a tela de login
+                $('.login-entrar').slideToggle(400);
+                $('.cadastrar').slideToggle(400);
+                $('.cadastro-sucesso').show();
+                //apaga o conteudo dos campos
+                $('#nome-cadastro, #email-cadastro, #senha-cadastro, #senha-cadastro-confirm').val('');
+            }
+            else {
+                $('.error-text').show().text('Este e-mail já foi cadastrado, por favor escolha outro');
+            }
         }
         else {
             $('.error-text').show().text('As senhas não estão iguais');
