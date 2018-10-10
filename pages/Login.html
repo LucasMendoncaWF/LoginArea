@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="../styles/min.css/master-projetos.min.css" />
-  <link rel="stylesheet" type="text/css" href="../styles/min.css/login.min.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/master-projetos.min.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/login.min.css" />
 </head>
 <body>
   <div id="master-projetos">
@@ -17,12 +17,18 @@
       <hr class="linha-titulo" />
       <div class="campos">
         <div class="campo">
+          <div class="error-text"></div>
+        </div>
+        <div class="campo">
+          <div class="cadastro-sucesso">Cadastrado com Sucesso!</div>
+        </div>
+        <div class="campo">
           <label for="email-login">E-mail</label>
-          <input type="email" class="campo-input" id="email-login" placeholder="Digite seu e-mail cadastrado..." />
+          <input type="email" maxlength="100" class="campo-input" id="email-login" placeholder="Digite seu e-mail cadastrado..." />
         </div>
         <div class="campo">
           <label for="senha-login">Senha</label>
-          <input type="password" class="campo-input" id="senha-login" placeholder="Digite sua senha..." />
+          <input type="password" maxlength="30" class="campo-input" id="senha-login" placeholder="Digite sua senha..." />
         </div>
         <div id="criar-conta">Clique aqui para criar uma conta</div>
         <div class="campo">
@@ -33,9 +39,53 @@
     <div class="cadastrar">
       <div class="titulo">Realize o Cadastro</div>
       <hr class="linha-titulo" />
+      <div class="campos">
+        <div class="campo">
+          <div class="error-text"></div>
+        </div>
+        <div class="campo">
+          <label for="nome-cadastro">Nome</label>
+          <input type="text" maxlength="100" class="campo-input" id="nome-cadastro" placeholder="Digite seu nome..." />
+        </div>
+        <div class="campo">
+          <label for="email-cadastro">E-mail</label>
+          <input type="email" maxlength="100" class="campo-input" id="email-cadastro" placeholder="Digite seu e-mail..." />
+        </div>
+        <div class="campo">
+          <label for="senha-cadastro">Senha</label>
+          <input type="password" maxlength="30" class="campo-input" id="senha-cadastro" placeholder="Digite sua senha..." />
+        </div>
+        <div class="campo">
+          <label for="senha-cadastro-confirm">Confirmação de senha</label>
+          <input type="password" maxlength="30" class="campo-input" id="senha-cadastro-confirm" placeholder="Digite sua senha novamente..." />
+        </div>
+        <div class="campo">
+          <button id="botao-cadastrar" class="botoes">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+    <div class="logado">
+      <div class="titulo">Logado</div>
+      <hr class="linha-titulo" />
+      <div class="campos">
+        <div class="welcome"></div>
+        <div class="logado-items">
+          <div class="item">
+            <div class="item-circle" id="tarefa-circle"><div class="icone"></div></div><div class="item-title">Tarefas</div>
+          </div>
+          <div class="item">
+            <div class="item-circle" id="reuniao-circle"><div class="icone"></div></div><div class="item-title">Reuniões</div>
+          </div>
+          <div class="item">
+            <div class="item-circle" id="contato-circle"><div class="icone"></div></div><div class="item-title">Contatos</div>
+          </div>
+        </div>
+        <div class="clear-float"></div>
+        <div class="botao-sair">Sair</div>
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="../plugins/jquery.min.js"></script>
-  <script type="text/javascript" src="../scripts/min.js/login.min.js"></script>
+  <script type="text/javascript" src="../scripts/login.min.js"></script>
 </body>
 </html>
